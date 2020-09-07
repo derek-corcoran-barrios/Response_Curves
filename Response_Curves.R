@@ -49,7 +49,7 @@ df3 <- df
 DF <-  read_rds("DF_Prop_gbm_Est.rds") %>% 
   mutate(ID = 1:n(),Weight = 1/(R2 - R2_Post)^3, Total = sum(Weight), Std_Weight = Weight/Total)
 
-Models <- read_rds("models_Prop_gbm_Est.rds") 
+  Models <- read_rds("models_Prop_gbm_Est.rds") 
 
 df3$Lambda<- Models %>% 
   purrr::map(~predict(.x, df3)) %>% 
